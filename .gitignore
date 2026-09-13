@@ -1,0 +1,4 @@
+# Les CV contiennent le numéro de téléphone : ne pas les publier
+*.docx
+~$*
+.claude/
