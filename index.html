@@ -97,7 +97,7 @@
         <dl class="stats">
           <div><dt>6+ ans</dt><dd>en développement logiciel</dd></div>
           <div><dt>12 ans</dt><dd>d'enseignement de l'informatique</dd></div>
-          <div><dt>7</dt><dd>projets présentés ici</dd></div>
+          <div><dt>8</dt><dd>projets présentés ici</dd></div>
           <div><dt>2026</dt><dd>Bourse d'excellence, Fondation UQTR</dd></div>
         </dl>
       </div>
@@ -244,10 +244,77 @@
             <button class="chip" data-filter="web" aria-pressed="false">Web full stack</button>
             <button class="chip" data-filter="ia" aria-pressed="false">IA &amp; algorithmes</button>
             <button class="chip" data-filter="vision" aria-pressed="false">Vision par ordinateur</button>
+            <button class="chip" data-filter="devops" aria-pressed="false">DevOps &amp; cloud</button>
           </div>
         </header>
 
         <div class="projects">
+
+          <article class="project project--feature reveal" data-cat="devops web">
+            <div class="project__visual v-deploy" aria-hidden="true">
+              <svg class="archi" viewBox="0 0 300 236" role="presentation">
+                <!-- Chaîne d'intégration continue -->
+                <rect class="ci" x="6" y="4" width="288" height="26" rx="7"/>
+                <text class="t t--ci" x="150" y="21">git push → GitHub Actions → GHCR</text>
+                <path class="flow" d="M150 30 V 50"/>
+
+                <!-- Proxy frontal -->
+                <rect class="edge" x="6" y="50" width="288" height="30" rx="7"/>
+                <text class="t t--edge" x="150" y="69">edge · nginx · TLS 443</text>
+                <path class="flow" d="M150 80 V 90 H 48 V 104 M150 90 H 252 V 104 M150 90 V 104"/>
+
+                <!-- Une colonne par application -->
+                <g class="app">
+                  <rect x="6" y="104" width="84" height="24" rx="6"/>
+                  <text class="t" x="48" y="120">sportstore-web</text>
+                  <rect x="6" y="136" width="84" height="24" rx="6"/>
+                  <text class="t" x="48" y="152">sportstore-api</text>
+                  <path class="link" d="M48 128 V 136"/>
+                </g>
+                <g class="app">
+                  <rect x="108" y="104" width="84" height="24" rx="6"/>
+                  <text class="t" x="150" y="120">jobstore-web</text>
+                  <rect x="108" y="136" width="84" height="24" rx="6"/>
+                  <text class="t" x="150" y="152">jobstore-api</text>
+                  <path class="link" d="M150 128 V 136"/>
+                </g>
+                <g class="app">
+                  <rect x="210" y="104" width="84" height="24" rx="6"/>
+                  <text class="t" x="252" y="120">musicstore-web</text>
+                  <rect x="210" y="136" width="84" height="24" rx="6"/>
+                  <text class="t" x="252" y="152">musicstore-api</text>
+                  <path class="link" d="M252 128 V 136"/>
+                </g>
+
+                <path class="link" d="M48 160 V 176 H 150 M252 160 V 176 H 150 M150 160 V 176"/>
+
+                <!-- Base mutualisée -->
+                <rect class="db" x="60" y="176" width="180" height="28" rx="7"/>
+                <text class="t t--db" x="150" y="194">PostgreSQL · 3 bases · 3 rôles</text>
+                <text class="t t--note" x="150" y="224">VPS OVH 4 Go · aucun port publié hors 80/443</text>
+              </svg>
+            </div>
+            <div class="project__body">
+              <p class="project__type">DevOps · Infrastructure · Projet personnel</p>
+              <h3>Socle de déploiement — trois applications sur un VPS</h3>
+              <p>
+                Une infrastructure unique qui héberge SportStore, JobStore et MusicStore sur un
+                seul VPS de 4 Go, chacune sur son sous-domaine en HTTPS. Un
+                <strong>push sur un dépôt suffit</strong> : GitHub Actions construit l'image,
+                la publie sur GHCR, puis le VPS la récupère et bascule l'application après
+                vérification de son <em>healthcheck</em>.
+              </p>
+              <ul class="bullets">
+                <li>nginx frontal avec certificats Let's Encrypt renouvelés automatiquement ; front et API partagent l'origine, donc <strong>aucune configuration CORS</strong> en production</li>
+                <li>PostgreSQL mutualisé, trois bases et trois rôles isolés, lié à <code>127.0.0.1</code> et joignable uniquement par tunnel SSH</li>
+                <li><strong>Une clé SSH par dépôt</strong>, bridée par commande forcée : une clé volée ne peut que redéployer son application, jamais ouvrir un shell</li>
+                <li>Serveur durci en une commande : compte sans mot de passe, root SSH coupé, ufw, fail2ban, swap et Docker installés</li>
+                <li>Budget mémoire tenu : limites par conteneur, 743 Mo mesurés pour la pile complète sur 4 Go</li>
+                <li>Exploitation par <code>make</code> (déploiement, journaux, certificats, sauvegardes) et retour arrière par tag de commit</li>
+              </ul>
+              <ul class="tags"><li>Docker Compose</li><li>nginx</li><li>GitHub Actions</li><li>GHCR</li><li>Let's Encrypt</li><li>PostgreSQL</li><li>Linux</li><li>Bash</li><li>ufw / fail2ban</li></ul>
+            </div>
+          </article>
 
           <article class="project project--feature reveal" data-cat="web ia">
             <div class="project__visual v-job" aria-hidden="true">
@@ -274,8 +341,12 @@
               </ul>
               <ul class="tags"><li>ASP.NET Core 9</li><li>Angular 21</li><li>Material 3</li><li>Signals</li><li>JWT</li><li>API Claude</li></ul>
               <div class="project__links">
+                <a class="demo" href="https://jobstore.romualdasonmene.cloud" target="_blank" rel="noopener">Tester la démo</a>
                 <a href="https://github.com/ndele2024/jobstore" target="_blank" rel="noopener">Code source →</a>
               </div>
+              <p class="project__demo-note">
+                Comptes de démonstration affichés sur l'écran de connexion. Code de vérification : <code>123456</code>.
+              </p>
             </div>
           </article>
 
@@ -297,6 +368,9 @@
                 <li>82 tests back-end et 69 tests front-end</li>
               </ul>
               <ul class="tags"><li>Spring Boot 3.4</li><li>Java 21</li><li>Angular 19</li><li>PostgreSQL 16</li><li>Docker</li></ul>
+              <div class="project__links">
+                <a class="demo" href="https://musicstore.romualdasonmene.cloud" target="_blank" rel="noopener">Tester la démo</a>
+              </div>
             </div>
           </article>
 
@@ -318,6 +392,7 @@
               </ul>
               <ul class="tags"><li>Angular 19</li><li>Spring Boot</li><li>ASP.NET Core</li><li>PostgreSQL</li><li>Bootstrap</li></ul>
               <div class="project__links">
+                <a class="demo" href="https://sportstore.romualdasonmene.cloud" target="_blank" rel="noopener">Tester la démo</a>
                 <a href="https://github.com/ndele2024/AngularSportStore" target="_blank" rel="noopener">Code source →</a>
               </div>
             </div>
@@ -483,7 +558,7 @@
           </div>
           <div class="skill reveal">
             <h3>Cloud &amp; DevOps</h3>
-            <ul class="tags tags--lg"><li>Microsoft Azure</li><li>Docker</li><li>GitHub Actions</li><li>CI/CD</li><li>Linux</li><li>OCI</li></ul>
+            <ul class="tags tags--lg"><li>Microsoft Azure</li><li>Docker / Compose</li><li>GitHub Actions</li><li>CI/CD</li><li>GHCR</li><li>nginx</li><li>Let's Encrypt</li><li>VPS Linux</li><li>ufw / fail2ban</li><li>OCI</li></ul>
           </div>
           <div class="skill reveal">
             <h3>IA &amp; automatisation</h3>
