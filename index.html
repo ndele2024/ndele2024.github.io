@@ -112,10 +112,10 @@
         </header>
         <div class="prose reveal">
           <p>
-            Finissant au baccalauréat en informatique (développement des logiciels) à
+            Titulaire d'un baccalauréat en informatique (développement des logiciels) à
             l'Université du Québec à Trois-Rivières, je travaille aujourd'hui comme
             <strong>analyste développeur</strong> sur le système IFA&nbsp;2.0 (Information sur la
-            faune aquatique) : migration Oracle → PostgreSQL/PostGIS, pipelines CI/CD sur GitHub,
+            faune aquatique) : migration Oracle → PostgreSQL/PostGIS, API python Django, pipelines CI/CD sur GitHub,
             tableaux de bord et collecte de données terrain.
           </p>
           <p>
@@ -127,7 +127,7 @@
           </p>
           <p>
             Ce qui me passionne en ce moment : l'intelligence artificielle appliquée
-            (vision par ordinateur, agents, LLM) et l'automatisation des processus.
+            (vision par ordinateur, agents, LLM), l'automatisation des processus et le Devops.
           </p>
         </div>
       </div>
@@ -155,7 +155,9 @@
                 <li>Automatisation du déploiement par workflows <strong>CI/CD GitHub</strong>.</li>
                 <li>Migration automatisée des bases <strong>Oracle vers PostgreSQL/PostGIS</strong> par scripts Python, avec contrôle d'intégrité et gestion des accès.</li>
                 <li>Administration PostgreSQL-PostGIS, écriture et optimisation de requêtes.</li>
-                <li>Formulaires de collecte terrain (QGIS / QField) et tableaux de bord <strong>Metabase</strong>.</li>
+                <li>Conception des Formulaires de collecte terrain <strong>(QGIS / QField)</strong> et tableaux de bord <strong>Metabase</strong>.</li>
+                <li>Développement d’interface personnalisée pour QField avec <strong>QML (Qt Meta-object Language)</strong> </li>
+                <li>Développement d'API <strong>Python Django</strong>, authentification, Gestion des accès, .</li>
               </ul>
               <ul class="tags"><li>Python</li><li>PostgreSQL</li><li>PostGIS</li><li>Oracle</li><li>GitHub Actions</li><li>QGIS</li><li>Metabase</li></ul>
             </div>
@@ -167,12 +169,15 @@
               <span class="tl__place">Québec</span>
             </div>
             <div class="tl__body">
-              <h3>Agent de service aux citoyens</h3>
+              <h3>Agent de service aux citoyens / Agent de soutient aux activutés du tribunal</h3>
               <p class="tl__org">Tribunal administratif du logement</p>
               <ul>
+                <li>Accueil des citoyens et informations sur les dossiers et procédures du tribunal</li>
+                <li>Support aux utilisateurs et accompagnement dans l’utilisation des services numériques.</li>
+                <li>Analyse et traitement de demandes en ligne.</li>
+                <li>Recherche et gestion de dossiers administratifs.</li>
                 <li>Traitement de dossiers dans un environnement gouvernemental rigoureux.</li>
-                <li>Soutien aux citoyens dans l'utilisation des services numériques et analyse des demandes en ligne.</li>
-              </ul>
+                </ul>
             </div>
           </li>
 
@@ -182,7 +187,7 @@
               <span class="tl__place">Cameroun</span>
             </div>
             <div class="tl__body">
-              <h3>Développeur Full Stack &amp; analyste pilote système</h3>
+              <h3>Développeur Full Stack &amp; analyste système</h3>
               <p class="tl__org">YAKOO</p>
               <ul>
                 <li>Conception et développement d'une <strong>application de gestion d'établissements scolaires</strong> (React, Java/PHP, PostgreSQL) déployée sur une VM <strong>Azure</strong>.</li>
@@ -197,23 +202,6 @@
 
           <li class="tl reveal">
             <div class="tl__meta">
-              <span class="tl__date">2021 — 2023</span>
-              <span class="tl__place">Cameroun</span>
-            </div>
-            <div class="tl__body">
-              <h3>Développeur logiciel — automatisation &amp; solutions web</h3>
-              <p class="tl__org">REINIC SARL</p>
-              <ul>
-                <li>Application de gestion avec automatisation des calculs et génération de rapports.</li>
-                <li>Conception de la base PostgreSQL : tables, triggers, fonctions PL/pgSQL, optimisation.</li>
-                <li>Déploiement sur Azure et rédaction de la documentation technique.</li>
-              </ul>
-              <ul class="tags"><li>PostgreSQL</li><li>PL/pgSQL</li><li>Azure</li></ul>
-            </div>
-          </li>
-
-          <li class="tl reveal">
-            <div class="tl__meta">
               <span class="tl__date">Janv. 2011 — Févr. 2023</span>
               <span class="tl__place">Cameroun</span>
             </div>
@@ -221,7 +209,7 @@
               <h3>Enseignant d'informatique — animateur pédagogique</h3>
               <p class="tl__org">Lycée de Bansoa-Mbri (secondaire) · Institut Privé Polytechnique de Bansoa (collégial, 2018–2022)</p>
               <ul>
-                <li>Cours de programmation (JS, C, PHP), réseaux, bases de données et programmation web.</li>
+                <li>Cours de programmation (Javascript, C, PHP), réseaux, bases de données et programmation web.</li>
                 <li>Gestion du laboratoire informatique, plans de cours, supervision de stages et jurys de BTS.</li>
                 <li><strong>Distinctions :</strong> meilleur animateur pédagogique du lycée (2017) ; l'un des meilleurs enseignants d'informatique du département de la Menoua (2013).</li>
               </ul>
@@ -295,20 +283,21 @@
               </svg>
             </div>
             <div class="project__body">
-              <p class="project__type">DevOps · Infrastructure · Projet personnel</p>
+              <p class="project__type">DevOps · Infrastructure</p>
               <h3>Socle de déploiement — trois applications sur un VPS</h3>
               <p>
-                Une infrastructure unique qui héberge SportStore, JobStore et MusicStore sur un
-                seul VPS de 4 Go, chacune sur son sous-domaine en HTTPS. Un
-                <strong>push sur un dépôt suffit</strong> : GitHub Actions construit l'image,
-                la publie sur GHCR, puis le VPS la récupère et bascule l'application après
+                Une infrastructure unique qui héberge 3 applications fullstack (SportStore, JobStore et MusicStore) sur un
+                seul VPS de 4 Go de RAM, chacune sur son sous-domaine en HTTPS. Un
+                <strong>push sur un dépôt suffit</strong> : un workflow GitHub Actions construit l'image,
+                la publie sur GHCR (GitHub Container Registry), puis le VPS la récupère et bascule l'application après
                 vérification de son <em>healthcheck</em>.
               </p>
               <ul class="bullets">
-                <li>nginx frontal avec certificats Let's Encrypt renouvelés automatiquement ; front et API partagent l'origine, donc <strong>aucune configuration CORS</strong> en production</li>
+                <li>nginx frontal avec certificats Let's Encrypt renouvelés automatiquement ;
+                  <code>docker-compose</code> pour chaque application, avec <code>healthcheck</code> et redémarrage automatique</li>
                 <li>PostgreSQL mutualisé, trois bases et trois rôles isolés, lié à <code>127.0.0.1</code> et joignable uniquement par tunnel SSH</li>
-                <li><strong>Une clé SSH par dépôt</strong>, bridée par commande forcée : une clé volée ne peut que redéployer son application, jamais ouvrir un shell</li>
-                <li>Serveur durci en une commande : compte sans mot de passe, root SSH coupé, ufw, fail2ban, swap et Docker installés</li>
+                <li><strong>Une clé SSH par dépôt</strong></li>
+                <li>Serveur configuré en une commande : compte sans mot de passe, root SSH coupé, ufw, fail2ban, swap et Docker installés</li>
                 <li>Budget mémoire tenu : limites par conteneur, 743 Mo mesurés pour la pile complète sur 4 Go</li>
                 <li>Exploitation par <code>make</code> (déploiement, journaux, certificats, sauvegardes) et retour arrière par tag de commit</li>
               </ul>
@@ -317,26 +306,22 @@
           </article>
 
           <article class="project project--feature reveal" data-cat="web ia">
-            <div class="project__visual v-job" aria-hidden="true">
-              <div class="mock">
-                <div class="mock__row"><b></b><span style="width:55%"></span></div>
-                <div class="mock__match"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" class="track"/><circle cx="18" cy="18" r="15.9" class="bar" stroke-dasharray="86 100"/></svg><em>86%</em></div>
-                <div class="mock__row"><b></b><span style="width:70%"></span></div>
-                <div class="mock__row"><b></b><span style="width:40%"></span></div>
-              </div>
+            <div class="project__visual project__visual--shot">
+              <img src="img/jobstore-tableau-de-bord.png" width="1200" height="750" loading="lazy" decoding="async"
+                   alt="Tableau de bord candidat de JobStore : compteurs de candidatures, offres recommandees avec pourcentage de correspondance, et panneau de profil.">
             </div>
             <div class="project__body">
               <p class="project__type">Plateforme web · Projet personnel</p>
               <h3>JobStore</h3>
               <p>
-                Plateforme de recherche d'emploi (à la Indeed / Jobillico) avec trois espaces :
+                Plateforme de recherche d'emploi avec trois espaces :
                 candidat, entreprise et administration. Le CV téléversé est <strong>analysé par
                 l'API Claude</strong> pour pré-remplir le profil, et chaque offre affiche un
                 <strong>pourcentage de correspondance expliqué</strong> (compétences acquises ou manquantes).
               </p>
               <ul class="bullets">
                 <li>Architecture en couches Domain / Application / Infrastructure / Api</li>
-                <li>Authentification JWT + double facteur par code courriel</li>
+                <li>Authentification JWT + double facteur par courriel</li>
                 <li>Candidats classés par correspondance, statistiques de consultation des offres</li>
               </ul>
               <ul class="tags"><li>ASP.NET Core 9</li><li>Angular 21</li><li>Material 3</li><li>Signals</li><li>JWT</li><li>API Claude</li></ul>
@@ -345,7 +330,9 @@
                 <a href="https://github.com/ndele2024/jobstore" target="_blank" rel="noopener">Code source →</a>
               </div>
               <p class="project__demo-note">
-                Comptes de démonstration affichés sur l'écran de connexion. Code de vérification : <code>123456</code>.
+                Démo : <code>alicia@example.com</code> / <code>Employee123</code> (candidat) ·
+                <code>rh@nordtalent.ca</code> / <code>Employer123</code> (entreprise).
+                Code de vérification à deux facteurs : <code>123456</code>.
               </p>
             </div>
           </article>
@@ -355,7 +342,7 @@
               <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
             </div>
             <div class="project__body">
-              <p class="project__type">Plateforme web · Projet d'équipe UQTR</p>
+              <p class="project__type">Plateforme web </p>
               <h3>MusicStore</h3>
               <p>
                 Plateforme de publication et d'écoute de titres audio et vidéo : les artistes
@@ -370,16 +357,22 @@
               <ul class="tags"><li>Spring Boot 3.4</li><li>Java 21</li><li>Angular 19</li><li>PostgreSQL 16</li><li>Docker</li></ul>
               <div class="project__links">
                 <a class="demo" href="https://musicstore.romualdasonmene.cloud" target="_blank" rel="noopener">Tester la démo</a>
+              <a href="https://github.com/ndele2024/MusicStoreProduction.git" target="_blank" rel="noopener">Code source →</a>
               </div>
+              <p class="project__demo-note">
+                Démo : <code>ed@example.com</code> (artiste) · <code>jean@example.com</code> (auditeur) ·
+                <code>admin@musicstore.local</code>. Mot de passe commun : <code>Password1!</code>.
+              </p>
             </div>
           </article>
 
           <article class="project reveal" data-cat="web">
-            <div class="project__visual v-sport" aria-hidden="true">
-              <div class="cart"><span></span><span></span><span></span><strong>Facture PDF</strong></div>
+            <div class="project__visual project__visual--shot">
+              <img src="img/sportstore-tableau-de-bord.png" width="1200" height="413" loading="lazy" decoding="async"
+                   alt="Tableau de bord client de SportStore : panier en cours, commandes en cours et derniers achats.">
             </div>
             <div class="project__body">
-              <p class="project__type">E-commerce · Projet personnel</p>
+              <p class="project__type">Plate forme de E-commerce </p>
               <h3>SportStore</h3>
               <p>
                 Boutique en ligne d'articles de sport avec panier, paiement par carte simulé,
@@ -395,6 +388,10 @@
                 <a class="demo" href="https://sportstore.romualdasonmene.cloud" target="_blank" rel="noopener">Tester la démo</a>
                 <a href="https://github.com/ndele2024/AngularSportStore" target="_blank" rel="noopener">Code source →</a>
               </div>
+              <p class="project__demo-note">
+                Démo : <code>jane</code> / <code>password</code> (client) ·
+                <code>admin</code> / <code>secret</code> pour l'espace d'administration.
+              </p>
             </div>
           </article>
 
@@ -412,7 +409,7 @@
               <p>
                 On dépose une photo, tout ce qu'elle contient est segmenté automatiquement ; on clique
                 sur ce qu'on veut effacer et le fond est <strong>reconstitué par IA</strong>. Pinceau et gomme
-                permettent d'affiner le masque (ombres portées), avec un comparateur avant / après.
+                permettent d'affiner le résultat, avec un comparateur avant / après.
               </p>
               <ul class="bullets">
                 <li>Segmentation panoptique <strong>Mask2Former</strong>, sélection au clic avec <strong>SAM</strong>, reconstitution <strong>LaMa</strong></li>
@@ -420,6 +417,9 @@
                 <li>Tâches asynchrones, stockage local ou Azure Blob, tests sans chargement de modèle</li>
               </ul>
               <ul class="tags"><li>Python</li><li>PyTorch</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>Vite</li><li>Azure</li></ul>
+              <div class="project__links">
+                <a href="https://github.com/ndele2024/fiximg.git" target="_blank" rel="noopener">Code source →</a>
+              </div>
             </div>
           </article>
 
@@ -428,11 +428,11 @@
               <div class="quad"><span>Source</span><span>Segmentation</span><span>Profondeur</span><span>01-C-M-P</span></div>
             </div>
             <div class="project__body">
-              <p class="project__type">Vision par ordinateur · SIF1033, UQTR (équipe)</p>
+              <p class="project__type">Vision par ordinateur · projet UQTR (équipe)</p>
               <h3>Description de l'environnement par flux vidéo</h3>
               <p>
                 Application temps réel qui analyse une webcam ou une vidéo et affiche quatre vues :
-                source, masques de segmentation des personnes, carte de profondeur, et étiquettes
+                la source, les masques de segmentation des personnes, la carte de profondeur, et les étiquettes
                 encodées indiquant la position de chaque personne (hauteur, largeur, distance).
               </p>
               <ul class="bullets">
@@ -461,9 +461,13 @@
               <ul class="bullets">
                 <li>BFS, DFS, IDFS, A* et IDA* ; heuristiques Manhattan et Hamming</li>
                 <li>Validation des grilles, génération de puzzles solvables</li>
-                <li>Tests unitaires et d'intégration commentés</li>
+                <li>Tests unitaires et d'intégration</li>
               </ul>
               <ul class="tags"><li>Python</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>Framer Motion</li></ul>
+              <div class="project__links">
+                <a href="https://github.com/ndele2024/8-puzzle-server.git" target="_blank" rel="noopener">Code source backend →</a>
+                <a href="https://github.com/ndele2024/8-puzzle-client.git" target="_blank" rel="noopener">Code source frontend→</a>
+              </div>
             </div>
           </article>
 
@@ -472,7 +476,7 @@
               <div class="board" id="board"></div>
             </div>
             <div class="project__body">
-              <p class="project__type">Théorie des jeux · IAR1001, UQTR</p>
+              <p class="project__type">Théorie des jeux</p>
               <h3>Jeu de dames multi-agents</h3>
               <p>
                 Moteur complet de jeu de dames (règles, prises, promotions) avec plusieurs agents
@@ -509,7 +513,7 @@
             <p class="edu__sub">Parcours développement des logiciels</p>
             <p class="edu__school">Université du Québec à Trois-Rivières (UQTR)</p>
             <p class="badge">🏅 Bourse d'excellence de la Fondation UQTR — 2026</p>
-            <p class="edu__courses">Cours marquants : intelligence artificielle (IAR1001), traitement d'images (SIF1033), développement web.</p>
+            <p class="edu__courses">Cours marquants : intelligence artificielle, traitement d'images, Génie logiciel, Analyse et conception de logiciel</p>
           </article>
           <article class="edu__item reveal">
             <span class="edu__date">2023 — 2024</span>
@@ -595,6 +599,7 @@
         <ul class="contact__links">
           <li><a href="https://www.linkedin.com/in/romuald-asonmene-tewounno-8580242b2" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://github.com/ndele2024" target="_blank" rel="noopener">GitHub</a></li>
+          <li>Tel. (+1) 819-244-8254</li>
         </ul>
       </div>
     </section>

@@ -306,17 +306,22 @@ code { font-family: var(--mono); font-size: .88em; background: var(--bg-alt); pa
 }
 .project--feature .project__visual { border-bottom: 0; border-right: 1px solid var(--line); }
 
-.v-job { background: linear-gradient(135deg, #0f766e, #134e4a); }
-.mock { width: 72%; max-width: 300px; background: rgba(255,255,255,.96); border-radius: 12px; padding: 18px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,.25); }
-.mock__row { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
-.mock__row b { width: 26px; height: 26px; border-radius: 7px; background: #d7ede9; flex: none; }
-.mock__row span { height: 9px; border-radius: 5px; background: #e5e2da; }
-.mock__match { position: absolute; right: -22px; top: -22px; width: 76px; height: 76px; background: #fff; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
-.mock__match svg { position: absolute; inset: 8px; transform: rotate(-90deg); }
-.mock__match circle { fill: none; stroke-width: 3.2; }
-.mock__match .track { stroke: #e5e2da; }
-.mock__match .bar { stroke: #c2410c; stroke-linecap: round; }
-.mock__match em { font: 600 15px var(--mono); font-style: normal; color: #16181d; }
+/* Cartes illustrees par une capture d'ecran reelle plutot que par une
+   illustration CSS. Le conteneur porte deja « position: relative » : l'image
+   s'y cale en absolu et remplit la zone quelle que soit sa hauteur, celle des
+   cartes normales comme celle des cartes pleine largeur. */
+.project__visual--shot { display: block; background: var(--bg-alt); }
+.project__visual--shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* « top left » plutot que « center » : l'interet d'une capture de tableau de
+     bord est dans son en-tete, pas dans son milieu. */
+  object-fit: cover;
+  object-position: top left;
+  display: block;
+}
 
 .v-music { background: linear-gradient(135deg, #312e81, #1e1b4b); }
 .eq { display: flex; align-items: flex-end; gap: 7px; height: 90px; }
@@ -330,13 +335,6 @@ code { font-family: var(--mono); font-size: .88em; background: var(--bg-alt); pa
 .eq i:nth-child(7) { height: 72%; animation-delay: -.8s; }
 @keyframes eq { to { transform: scaleY(.35); } }
 .eq i { transform-origin: bottom; }
-
-.v-sport { background: linear-gradient(135deg, #c2410c, #7c2d12); }
-.cart { background: #fff; border-radius: 10px; padding: 16px 18px; width: 58%; max-width: 230px; box-shadow: 0 16px 36px rgba(0,0,0,.25); }
-.cart span { display: block; height: 9px; border-radius: 5px; background: #eee9e0; margin-bottom: 9px; }
-.cart span:nth-child(2) { width: 75%; }
-.cart span:nth-child(3) { width: 50%; }
-.cart strong { display: block; margin-top: 12px; padding: 8px; border-radius: 7px; background: #16181d; color: #fff; font: 500 12px var(--mono); text-align: center; }
 
 .v-fix { background: #1c1917; }
 .fix { position: relative; width: 80%; max-width: 380px; aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,.4); }
